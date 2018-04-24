@@ -1,0 +1,26 @@
+[Unit]
+Description=DREM's distributed currency daemon
+After=network.target
+
+[Service]
+User=drem
+Group=drem
+
+Type=forking
+PIDFile=/var/lib/dremd/dremd.pid
+
+ExecStart=/usr/bin/dremd -daemon -pid=/var/lib/dremd/dremd.pid \
+          -conf=/etc/drem/drem.conf -datadir=/var/lib/dremd
+
+ExecStop=-/usr/bin/drem-cli -conf=/etc/drem/drem.conf \
+         -datadir=/var/lib/dremd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

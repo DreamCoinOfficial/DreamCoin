@@ -1,0 +1,26 @@
+# /etc/conf.d/dremd: config file for /etc/init.d/dremd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/drem/drem.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/dremd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/dremd.pid"
+
+# Where to write dremd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/dremd"
+
+# User and group to own dremd process
+#BITCOIND_USER="drem"
+#BITCOIND_GROUP="drem"
+
+# Path to dremd executable
+#BITCOIND_BIN="/usr/bin/dremd"
+
+# Nice value to run dremd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
